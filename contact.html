@@ -9,31 +9,6 @@
     <title>Kang Bin Kim</title>
 </head>
 <body>
-<?php
-    if(!isset($_REQUEST['email']))
-    {
-        echo "error; you need to submit the form!";
-        exit;
-    }
-    $name = $_REQUEST['name'];
-    $visitor_email = $_REQUEST['email'];
-    $message = $_REQUEST['message'];
-
-    //validate first
-    if(empty($name)||empty($visitor_email))
-    {
-        echo "Name and email are mandatory.";
-        exit;
-    }
-
-    $email_subject = "New Form submission";
-
-    $to = "kimkb2011@gmail.com";
-    $headers = "From: $email_from \r\n";
-
-    //send email
-    mail($to,$email_subject,$message,$headers);
-?>
 
 <div>
     <ul class="topnav" id="myTopnav">
@@ -57,34 +32,13 @@
         <ul class>
             <li><a class="hoverLink" href="https://www.linkedin.com/in/kang-bin-kim-820516ba/">LinkedIn Profile</a></li>
             <li class="contactSpace"><a class="hoverLink" href="https://github.com/kimkb2011">Github Profile</a></li>
+            <li class="contactSpace">
+                <form method="post" name="email" action="mailto:kimkb2011@gmail.com">
+                    <input type = "submit" value="Email">
+                </form>
+            </li>
         </ul>
     </div>
-    <div class="contactRight">
-        <h2>E-mail</h2>
-        <form method="post" name="email" action="form-to-email.php">
-            <p>
-                Enter Name: <input type="text" name="name">
-            </p>
-            <p>
-                Enter Email Address: <input type="text" name="email">
-            </p>
-            <p>
-                Enter Message: <br>
-                <textarea type="text" name="message" rows="20" cols="70"></textarea><br><br>
-                <input type = "submit" value="Send">
-                <input type= "reset" value="Reset">
-            </p>
-        </form>
-    </div>
-    <!--<form method="post" name="email">-->
-        <!--<input class="inputSizes" type="text" name="name"><br>-->
-        <!--Your E-mail:<br>-->
-        <!--<input class="inputSizes" type="text" name="mail"><br>-->
-        <!--<br>-->
-        <!--<textarea type="text" name="comment" rows="20" cols="70"></textarea><br><br>-->
-        <!--<input type="submit" value="Send">-->
-        <!--<input type="reset" value="Reset">-->
-    <!--</form>-->
 </div>
 
 </body>
