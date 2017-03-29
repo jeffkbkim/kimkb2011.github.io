@@ -164,8 +164,9 @@ h2 {
 }
 
 .contactContainer {
-    height: 560px;
+    height: 300px;
     background: whitesmoke;
+    width:100%;
     padding: 0;
     margin: 0;
 }
@@ -174,24 +175,12 @@ h2 {
     padding-top: 5%;
 }
 
-.emailForm {
-    width: 10%;
-    height:10%;
-}
-
 .contactLeft {
-    padding: 15%;
-    float: left;
-    width:20%;
+    padding: 5%;
+    width:100%;
     overflow: hidden;
 }
 
-.contactRight {
-    height: 100%;
-    width:40%;
-    padding: 3%;
-    overflow: hidden;
-}
 
 .emailForm {
     width:100%;
@@ -204,4 +193,22 @@ h2 {
 .emailContent {
     width:300px;
     height:200px;
+}
+
+/*projects CSS*/
+
+.leftProject {
+    width : 35%;
+    height: 89%;
+    float: left;
+    padding: 2%;
+    margin-left:10%;
+    overflow: hidden;
+}
+
+.rightProject {
+    width : 35%;
+    height: 89%;
+    padding : 2%;
+    overflow: hidden;
 }
