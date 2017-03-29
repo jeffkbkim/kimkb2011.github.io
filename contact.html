@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../javascript/main.js"></script>
+    <title>Kang Bin Kim</title>
+</head>
+<body>
+<?php
+    if(!isset($_REQUEST['email']))
+    {
+        echo "error; you need to submit the form!";
+        exit;
+    }
+    $name = $_REQUEST['name'];
+    $visitor_email = $_REQUEST['email'];
+    $message = $_REQUEST['message'];
+
+    //validate first
+    if(empty($name)||empty($visitor_email))
+    {
+        echo "Name and email are mandatory.";
+        exit;
+    }
+
+    $email_subject = "New Form submission";
+
+    $to = "kimkb2011@gmail.com";
+    $headers = "From: $email_from \r\n";
+
+    //send email
+    mail($to,$email_subject,$message,$headers);
+?>
+
+<div>
+    <ul class="topnav" id="myTopnav">
+        <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="about.html"><i class="fa fa-user-circle"></i> About</a></li>
+        <li><a href="contact.html"><i class="fa fa-envelope-o"></i>Contact</a></li>
+        <li><a href="resume.html"><i class="fa fa-file-pdf-o"></i> Resume</a></li>
+        <li><a href="sampleworks.html"><i class="fa fa-file-code-o" aria-hidden="true"></i> Projects</a></li>
+        <li class="icon">
+            <a href="javascript:void(0);" onclick="navClick()">&#9776;</a>
+        </li>
+    </ul>
+</div>
+<div>
+    <h1 class = "name">
+        Contact
+    </h1>
+</div>
+<div class="contactContainer">
+    <div class="contactLeft">
+        <ul class>
+            <li><a class="hoverLink" href="https://www.linkedin.com/in/kang-bin-kim-820516ba/">LinkedIn Profile</a></li>
+            <li class="contactSpace"><a class="hoverLink" href="https://github.com/kimkb2011">Github Profile</a></li>
+        </ul>
+    </div>
+    <div class="contactRight">
+        <h2>E-mail</h2>
+        <form method="post" name="email" action="../form-to-email.php">
+            <p>
+                Enter Name: <input type="text" name="name">
+            </p>
+            <p>
+                Enter Email Address: <input type="text" name="email">
+            </p>
+            <p>
+                Enter Message: <br>
+                <textarea type="text" name="message" rows="20" cols="70"></textarea><br><br>
+                <input type = "submit" value="Send">
+                <input type= "reset" value="Reset">
+            </p>
+        </form>
+    </div>
+    <!--<form method="post" name="email">-->
+        <!--<input class="inputSizes" type="text" name="name"><br>-->
+        <!--Your E-mail:<br>-->
+        <!--<input class="inputSizes" type="text" name="mail"><br>-->
+        <!--<br>-->
+        <!--<textarea type="text" name="comment" rows="20" cols="70"></textarea><br><br>-->
+        <!--<input type="submit" value="Send">-->
+        <!--<input type="reset" value="Reset">-->
+    <!--</form>-->
+</div>
+
+</body>
+</html>
